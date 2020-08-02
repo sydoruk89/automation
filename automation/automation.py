@@ -24,7 +24,7 @@ try:
         numbers_list = []
         pattern = r'[0-9]\d+-\d+-\d+|\d{9,10}|\d+\.\d+\.\d+|\(\d+\)\d+\-\d+'
         numbers = re.findall(pattern, data)
-        for el in sorted(numbers):
+        for el in numbers:
             new_el = re.sub('\.|\(|\)|\-', '', el)
             formatted_number = '-'.join([new_el[:3], new_el[3:6], new_el[6:]]) + ' \n'
             if formatted_number not in numbers_list:
