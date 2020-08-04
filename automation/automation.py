@@ -41,11 +41,9 @@ try:
         Args:
             data ([str])
         """
-        numbers_str = ''
         sorted_numbers = sorted(find_phone_numbers(stored_text))
-        for el in sorted_numbers:
-            numbers_str += el
-        return numbers_str
+        numbers_str = ''.join(sorted_numbers)
+        return str(numbers_str)
 except Exception as ex:
     logging.exception(ex)
 
@@ -57,12 +55,10 @@ try:
         Args:
             data ([str])
         """
-        email_text = ''
         pattern = r'[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+'
         email = re.findall(pattern, data)
-        for el in sorted(email):
-            email_text += f'{el}\n'
-        return email_text
+        email_text = '\n'.join(sorted(email))
+        return str(email_text)
 except Exception as ex:
     logging.exception(ex)
         
